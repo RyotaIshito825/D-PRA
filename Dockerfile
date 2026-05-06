@@ -2,8 +2,11 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY dpra/build/libs/*.jar app.jar
+COPY dpra /app
+
+RUN chmod +x gradlew
+RUN ./gradlew build
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","/app/app.jar"]
+CMD ["java", "-jar", "build/libs/dpra-0.0.1-SNAPSHOT.jar"]
