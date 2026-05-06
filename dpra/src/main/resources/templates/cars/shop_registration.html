@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/header :: head_fragment(title = '店名&画像登録')">
+
+<body class="">
+
+    <div class="contents">
+        <!-- サイドバー -->
+        <div th:replace="commons/side_bar :: side_bar"></div>
+
+        <!-- メイン -->
+        <div class="content-mains">
+            <div class="content-mains_inner">
+                <div class="page_title">店名&画像登録</div>
+
+                <form th:action="@{/cars/shop/submit}" method="post" enctype="multipart/form-data">
+                    <div class="shop_registration-urls">
+                        <div class="car_intake-url-text">会社名 or 店名</div>
+                        <div class="shop_registration-inputs">
+                            <input type="text" name="shopName" th:value="${session.shopName}" class="shop_registration-input" placeholder="Sampleカーズ販売店">
+                        </div>
+                    </div>
+                    <p th:if="${error}" th:text="${error}" class="text-danger mt-2" style="text-align: center;"></p>
+
+                    <p class="shop_registration-explanation">プライスカード用の画像を登録<br>※ W=145px、H=40px</p>
+                    <div class="">
+                        <div class="shop_registration_drop_images" id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                            <!-- <div class="shop_registration_drop-text">ファイルをドロップして<br>アップロード</div> -->
+                            <img th:src="@{/img/dragdrop.png}" alt="" class="shop-image" id="shop-image" style="width: 290px; height: 76px;">
+                        </div>
+                    </div>
+                    <div class="car_intake-file-upload-btns">
+                        <div class="car_intake-file-upload-btn-wrapper">
+                            <button type="button" onclick="document.getElementById('imageInput').click();" class="shop_registration-upload-button"><i class="fa-solid fa-upload"></i>画像をアップロード</button>
+                            <input type="file" name="file" class="car_intake-file-upload-btn" style="" id="imageInput" accept=".png,.jpg,.jpeg">
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="shop_registration-btn-wrapper">
+                        <button type="submit" class="shop_registration-btn">登録</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("imageInput");
+      const shopImage = document.getElementById("shop-image");
+
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            shopImage.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      function dropHandler(ev) {
+        ev.preventDefault();
+
+        if (ev.dataTransfer.items) {
+          [...ev.dataTransfer.items].forEach((item, i) => {
+            if (item.kind === "file") {
+              const file = item.getAsFile();
+              const dataTransfer = new DataTransfer();
+              dataTransfer.items.add(file);
+              fileInput.files = dataTransfer.files;
+
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                shopImage.src = e.target.result;
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+        } else {
+          [...ev.dataTransfer.files].forEach((file, i) => {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              shopImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+      }
+
+      function dragOverHandler(ev) {
+        ev.preventDefault();
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/header :: head_fragment(title = 'データ取込')">
+
+<body class="">
+
+    <div class="contents">
+            <!-- サイドバー -->
+            <div th:replace="commons/side_bar :: side_bar"></div>
+
+            <!-- メイン -->
+            <div class="content-mains">
+                <div class="content-mains_inner">
+                    <div class="page_title">データ取込</div>
+
+                    <form th:action="@{/cars/intake/submit}" method="post" enctype="multipart/form-data">
+                        <div class="car_intake-urls">
+                            <div class="car_intake-url-text">GoogleスプレッドシートURL</div>
+                            <div class="car_intake-url-inputs">
+                                <input type="text" name="url" value="" class="car_intake-url-input" placeholder="https://docs.google.com/spreadsheets/...">
+                            </div>
+                        </div>
+                        <p th:if="${error}" th:text="${error}" class="text-danger mt-2" style="text-align: center;"></p>
+
+                        <div class="car_intake-separator">- OR -</div>
+
+                        <div class="car_intake-file-drops drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                            <div class="car_intake-file-drop-text">ファイルをドロップして<br>アップロード</div>
+                            <div class="car_intake-file-upload-btns">
+                                <div class="car_intake-file-upload-btn-wrapper">
+                                    <button type="button" onclick="document.getElementById('excelFileInput').click();" class="car_intake-file-upload-button"><i class="fa-solid fa-upload"></i>車両データアップロード</button>
+                                    <input type="file" name="file" class="car_intake-file-upload-btn" style="" id="excelFileInput" accept=".xls,.xlsx,.xlsm">
+                                </div>
+                                <p id="excelFileName" class="mt-4" style="border-bottom: 1px solid deepskyblue;text-align: center; margin: auto; display: inline-block;">ファイルが選択されていません</p>
+                            </div>
+                        </div>
+
+                        <div class="car_intake-data-import-btn-wrapper">
+                            <button type="submit" class="car_intake-data-import-btn">取込開始</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            const element = document.getElementById("excelFileInput");
+            const excelFileName = document.getElementById("excelFileName");
+            const fileInput = document.getElementById("excelFileInput");
+
+            element.addEventListener("change", (e) => {
+               const file = e.target.files[0];
+               if (file) {
+                 excelFileName.innerText = file.name;
+               } else {
+                 excelFileName.innerText = "ファイルが選択されていません";
+               }
+            });
+
+
+            function dropHandler(ev) {
+              console.log("File(s) dropped");
+
+              // 既定の動作で防ぐ（ファイルが開かれないようにする）
+              ev.preventDefault();
+
+              if (ev.dataTransfer.items) {
+                // DataTransferItemList インターフェイスを使用して、ファイルにアクセスする
+                [...ev.dataTransfer.items].forEach((item, i) => {
+                  // ドロップしたものがファイルでない場合は拒否する
+                  if (item.kind === "file") {
+                    const file = item.getAsFile();
+                    console.log(`… file[${i}].name = ${file.name}`);
+                    excelFileName.innerText = file.name;
+
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+                    fileInput.files = dataTransfer.files;
+
+                  }
+                });
+              } else {
+                // DataTransfer インターフェイスを使用してファイルにアクセスする
+                [...ev.dataTransfer.files].forEach((file, i) => {
+                  console.log(`… file[${i}].name = ${file.name}`);
+                });
+              }
+            }
+
+            function dragOverHandler(ev) {
+                ev.preventDefault();
+            }
+
+        </script>
+</body>
+</html>

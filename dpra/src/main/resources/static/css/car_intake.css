@@ -1,0 +1,75 @@
+.content-mains {
+  margin-left: 30px;
+  padding: 30px 20px 20px 20px;
+  width: calc(100% - 300px);
+}
+
+.car_intake-urls {
+  width: 500px;
+  margin: 50px auto 0;
+}
+
+.car_intake-url-inputs {
+  width: 500px;
+  margin-top: 10px;
+}
+
+.car_intake-url-input {
+  width: 500px;
+  border: none;
+  border-bottom: 1px solid gray;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.car_intake-separator {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.car_intake-file-drops {
+  border: 1px dotted skyblue;
+  border-radius: 5px;
+  background-color: white;
+  padding: 100px 0;
+}
+
+.car_intake-file-drop-text {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.car_intake-file-upload-btns {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.car_intake-file-upload-btn {
+  display: none;
+}
+
+.car_intake-file-upload-button {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  background: #0D6EFD;
+}
+
+.car_intake-data-import-btn-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.car_intake-data-import-btn {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  background: #0D6EFD;
+}/*# sourceMappingURL=car_intake.css.map */

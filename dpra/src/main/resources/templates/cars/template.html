@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/header :: head_fragment(title = 'テンプレート一覧')">
+
+<body class="">
+
+    <div class="contents">
+            <!-- サイドバー -->
+            <div th:replace="commons/side_bar :: side_bar"></div>
+
+            <!-- メイン -->
+            <div class="content-mains">
+                <div class="content-mains_inner">
+                    <div class="page_title">テンプレート一覧</div>
+
+                    <div class="templates-selected-pricecards">
+                        <div class="templates-selected-pricecard-wrapper">
+                            <label for="" class="templates-selected-pricecard-label">選択テンプレート</label>
+                            <div class="templates-selected-pricecard">選択されていません</div>
+                        </div>
+
+                        <div class="templates-pdf-creates">
+                            <form th:action="@{/cars/template/submit}" method="get">
+                                <input type="hidden" name="priceCardName" value="" id="template-card-name">
+                                <input type="submit" name="" value="確定" class="templates-pef-create-input">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="templates">
+                        <div class="templates_inner">
+                            <div class="template_images">
+                                <img th:src="@{/img/pricecard-1.jpg}" alt="" class="template_image" id="template_image-1">
+                                <div class="template_modal-shadow"></div>
+                                <div class="template_image-name"></div>
+                            </div>
+                            <div class="template_images">
+                                <img th:src="@{/img/pricecard-2.jpg}" alt="" class="template_image" id="template_image-2">
+                                <div class="template_modal-shadow"></div>
+                                <div class="template_image-name"></div>
+                            </div>
+                            <div class="template_images">
+                                <img th:src="@{/img/pricecard-3.jpg}" alt="" class="template_image" id="template_image-3">
+                                <div class="template_modal-shadow"></div>
+                                <div class="template_image-name"></div>
+                            </div>
+                            <div class="template_images">
+                                <img th:src="@{/img/pricecard-4.jpg}" alt="" class="template_image" id="template_image-4">
+                                <div class="template_modal-shadow"></div>
+                                <div class="template_image-name"></div>
+                            </div>
+                            <div class="template_images">
+                                <img th:src="@{/img/pricecard-5.jpg}" alt="" class="template_image" id="template_image-5">
+                                <div class="template_modal-shadow"></div>
+                                <div class="template_image-name"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            const templateImages = document.querySelectorAll(".template_image");
+            const templateModalShadows = document.querySelectorAll(".template_modal-shadow");
+            const templateImageNames = document.querySelectorAll(".template_image-name");
+            const templatesSelectedPricecard = document.querySelector(".templates-selected-pricecard");
+            const templateCardName = document.getElementById("template-card-name");
+
+            for (let i = 0; i < templateModalShadows.length; i++) {
+
+                templateModalShadows[i].addEventListener("mouseover", () => {
+                    templateImageNames[i].innerText = templateImages[i].id;
+                    templateModalShadows[i].style.opacity = 0.7;
+                    templateImageNames[i].style.opacity = 1;
+                });
+
+                templateModalShadows[i].addEventListener("mouseout", () => {
+                    templateImageNames[i].innerText = "";
+                    templateModalShadows[i].style.opacity = 0;
+                    templateImageNames[i].style.opacity = 0;
+                });
+
+                templateModalShadows[i].addEventListener("click", () => {
+                    templatesSelectedPricecard.innerText = templateImages[i].id;
+                    templateCardName.value = templateImages[i].id;
+                });
+            };
+
+        </script>
+</body>
+</html>

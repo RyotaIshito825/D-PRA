@@ -1,0 +1,1208 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 14px;
+  background: rgb(218, 218, 218);
+  font-family: "Barlow", "Noto Sans JP", "sans-serif";
+  line-height: 1.5;
+  user-select: none;
+  font-feature-settings: "palt";
+  color: #141414;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("../img/background-image.jpg");
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 11px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: rgb(17, 17, 17);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.japanese_calendar,
+.registration_year,
+.registration_month {
+  font-family: Impact;
+}
+
+.card {
+  width: 1050px;
+  margin: 0 auto;
+}
+
+.headers {
+  display: flex;
+  background-color: white;
+  height: 40px;
+  padding: 0 15px;
+}
+
+.header_left {
+  display: flex;
+  line-height: 40px;
+}
+
+.company-name-label {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 20px;
+  border: none;
+  width: 300px;
+}
+
+.header_right {
+  width: 220px;
+  margin-left: auto;
+  line-height: 40px;
+  height: 40px;
+}
+
+.header_logo {
+  line-height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.names {
+  background-color: rgb(212, 195, 13);
+  display: flex;
+  height: 50px;
+  padding: 0 15px;
+}
+
+.jc-tags {
+  width: 8%;
+  margin-top: 5px;
+}
+
+.jc-tags_inner {
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.jc-text1,
+.jc-text2 {
+  font-size: 11px;
+}
+
+.jc-text1,
+.jc-text2,
+.jc-text3 {
+  font-weight: bold;
+}
+
+.jc-text2 {
+  margin-top: -4px;
+}
+
+.jc-text3 {
+  font-size: 8px;
+  margin-top: -4px;
+}
+
+.jcs_inner {
+  display: flex;
+  align-items: flex-end;
+}
+
+.japanese_calendar {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 50px;
+  border: none;
+  background-color: transparent;
+  width: 30px;
+  height: 100%;
+  text-align: right;
+}
+
+.registration_year {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 50px;
+  border: none;
+  background-color: transparent;
+  width: 50px;
+  height: 100%;
+  text-align: left;
+}
+
+.jc-unit {
+  font-size: 19px;
+  font-weight: bold;
+  margin: 0px 7px 3px 7px;
+}
+
+.registration_month {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 50px;
+  border: none;
+  background-color: transparent;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+}
+
+.models {
+  width: 65%;
+
+}
+
+.models_inner {
+  display: flex;
+  line-height: 50px;
+
+}
+
+.model-tags {
+  font-size: 32px;
+}
+
+.maker {
+  font-size: 32px;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  text-align: right;
+  width: 150px;
+}
+
+.car_model {
+  font-size: 32px;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  text-align: left;
+  width: 300px;
+}
+
+.grades {
+  margin-left: auto;
+  width: 27%;
+}
+
+.grades-text {
+  font-size: 11px;
+  line-height: 25px;
+}
+
+.grade {
+  font-size: 13px;
+  margin-top: -4px;
+  line-height: 25px;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  text-align: left;
+  width: 100%;
+}
+
+.mains {
+  background-color: white;
+  padding: 10px 15px;
+  display: flex;
+}
+
+.payment-tags {
+  width: 15%;
+}
+.payment-tags_images {
+  width: 90%;
+  height: 60px;
+  margin: 0 auto;
+  position: relative;
+}
+.payment-img {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.payment-text {
+  writing-mode: vertical-rl; /* 右から左の縦書き */
+  text-orientation: upright; /* 文字の向きを調整 */
+  border: 1px solid #000;
+  font-size: 60px;
+  font-weight: bold;
+  background-color: rgb(222, 0, 0);
+  color: yellow;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 18px;
+  line-height: 50px;
+  margin: 0 auto;
+}
+
+.total-prices {
+  width: 55%;
+  margin-top: 25px;
+  height: 300px;
+  display: flex;
+  align-items: stretch;
+}
+
+.total-prices_inner {
+  height: 300px;
+  display: flex;
+  justify-content: center; /* 横中央 */
+  align-items: center; /* 縦中央 */
+  overflow: hidden; /* はみ出たら隠す（安全） */
+  width: 100%;
+}
+
+.total-price {
+  font-family: Impact, sans-serif;
+  font-size: 350px; /* 最初は大きめ */
+  line-height: 1; /* 行間なしにする */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(222, 0, 0);
+}
+
+.total-price_dots-wrapper {
+  display: flex;
+}
+
+.total_price-dot_inner {
+  display: flex;
+  align-items: flex-end;
+}
+
+.total-price-dot {
+  font-size: 40px;
+  color: rgb(222, 0, 0);
+}
+.total-price-dpf_inner {
+  height: 140px;
+  display: flex;
+  justify-content: center; /* 横中央 */
+  align-items: center; /* 縦中央 */
+  overflow: hidden; /* はみ出たら隠す（安全） */
+  width: 100px;
+}
+.total-price-dpf {
+  font-size: 135px;
+  font-family: Impact;
+  border: none;
+  background-color: transparent;
+  line-height: 1; /* 行間なしにする */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(222, 0, 0);
+}
+
+.recycles {
+  width: 30%;
+}
+
+.recycles_inner {
+  width: 70%;
+  margin-left: auto;
+}
+
+.recycles-text {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.recycles-text2 {
+  margin-top: 5px;
+}
+
+.depositeds-wrapper {
+  display: flex;
+  margin-left: 10px;
+  line-height: 20px;
+  margin-top: 3px;
+}
+
+.deposited {
+  font-size: 11px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.deposited-text {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.depositeds-attached {
+  display: flex;
+  margin: 3px 0 5px 25px;
+}
+
+.deposited-attached {
+  font-size: 11px;
+  font-weight: bold;
+
+}
+
+.deposited-attached-text {
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.not-depositeds {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.not-deposited {
+  font-size: 11px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.not-deposited-text {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.mains-uom_inner {
+  margin: 0 auto;
+}
+
+.mains-uom {
+  font-family: "Mochiy Pop One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 76px;
+}
+
+.mains-ticdd {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: -20px;
+}
+
+.price-ohde {
+  display: flex;
+  height: 55px;
+  padding: 0px 15px;
+  background-color: white;
+  border-top: 3px solid green;
+}
+
+.price-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.price-tag {
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 45px;
+}
+
+.prices {
+  display: flex;
+}
+.price_inner {
+  display: flex;
+  justify-content: center; /* 横中央 */
+  align-items: center; /* 縦中央 */
+  overflow: hidden; /* はみ出たら隠す（安全） */
+  width: 100px;
+}
+.price {
+  font-family: Impact;
+  font-size: 50px;
+  border: none;
+  background-color: transparent;
+  text-align: right;
+  line-height: 1; /* 行間なしにする */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+}
+.price-dot {
+  font-family: Impact;
+  font-size: 50px;
+  line-height: 50px;
+}
+.price-dpf_inner {
+  display: flex;
+  justify-content: center; /* 横中央 */
+  align-items: center; /* 縦中央 */
+  overflow: hidden; /* はみ出たら隠す（安全） */
+  width: 30px;
+}
+.price-dpf {
+  font-family: Impact;
+  font-size: 50px;
+  line-height: 50px;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  line-height: 1; /* 行間なしにする */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.price-uom {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0 10px 0 5px;
+}
+
+.ohde-wrapper {
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+}
+.ohde-wrapper::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 45px;
+  background-color: green;
+  position: absolute;
+  top: 2px;
+  left: -5px;
+}
+.ohde-tag {
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 45px 0 10px;
+}
+.ohdes {
+  display: flex;
+}
+.ohde_inner {
+  display: flex;
+  justify-content: center; /* 横中央 */
+  align-items: center; /* 縦中央 */
+  overflow: hidden; /* はみ出たら隠す（安全） */
+  width: 60px;
+}
+.ohde {
+  font-family: Impact;
+  font-size: 50px;
+  border: none;
+  background-color: transparent;
+  text-align: right;
+  line-height: 1; /* 行間なしにする */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ohde-dot {
+  font-family: Impact;
+  font-size: 50px;
+  line-height: 50px;
+}
+.ohde-dpf_inner {
+  display: flex;
+  justify-content: center; /* 横中央 */
+  align-items: center; /* 縦中央 */
+  overflow: hidden; /* はみ出たら隠す（安全） */
+  width: 30px;
+}
+.ohde-dpf {
+  font-family: Impact;
+  font-size: 50px;
+  line-height: 1;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+}
+
+.ohde-uom {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.price-ohde-text {
+  font-size: 11px;
+  letter-spacing: 0px;
+  padding-top: 5px;
+}
+.price-ohde-text-inner {
+  display: flex;
+  align-items: center;
+}
+.price-ohde-month {
+  margin: 0px 3px;
+  font-size: 15px;
+  width: 30px;
+  text-align: center;
+}
+
+.price-ohde-city {
+  margin: 0px 10px;
+  font-size: 15px;
+  width: 60px;
+  text-align: center;
+}
+
+.options {
+  background-color: white;
+  padding-bottom: 1px;
+}
+
+.options_inner {
+  display: flex;
+  padding: 5px 15px 2px;
+}
+
+.maintenances {
+  width: 20%;
+  background-color: rgb(0, 99, 73);
+}
+
+.maintenances_wrapper {
+  padding: 5px;
+}
+
+.maintenances-title {
+  color: rgb(0, 99, 73);
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+.with-maintenances {
+  margin-top: 10px;
+}
+
+.with-maintenances-checkboxes {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.with-maintenance {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  accent-color: skyblue;
+}
+
+.with-maintenance-text {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.with-maintenances-note {
+  color: white;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.no-maintenances {
+  position: relative;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.no-maintenances::before {
+  content: "";
+  display: block;
+  width: 95%;
+  height: 1px;
+  margin: 0 auto;
+  background-color: white;
+  position: absolute;
+  left: 5px;
+}
+
+.no-maintenances-checkboxes {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.no-maintenance {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  accent-color: skyblue;
+}
+
+.no-maintenance-text {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.essential-maintenances {
+  margin-top: 10px;
+}
+
+.essential-maintenances-checkboxes {
+  display: flex;
+  align-items: center;
+}
+
+.essential-maintenance {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  accent-color: skyblue;
+}
+
+.essential-maintenance-text {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-left: 10px;
+}
+
+.essential-maintenances-note {
+  color: white;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.guarantees {
+  width: 25%;
+  background-color: rgb(0, 99, 73);
+  margin: 0 5px;
+}
+
+.guarantees_wrapper {
+  padding: 5px;
+}
+
+.guarantees-title {
+  color: rgb(0, 99, 73);
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+.with-guarantees-checkboxes {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.with-guarantee {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  accent-color: skyblue;
+}
+
+.with-guarantee-text {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.with-guarantee-text span {
+  font-size: 10px;
+}
+
+.guarantee-details-text {
+  color: white;
+  text-align: center;
+}
+.guarantee-details-text span {
+  font-size: 9px;
+}
+
+.guarantee-details-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: end;
+}
+
+.brackets-first {
+  color: white;
+  font-size: 24px;
+}
+
+.guarantee-details-content {
+  color: white;
+  font-size: 17px;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  width: 90%;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.brackets-end {
+  color: white;
+  font-size: 24px;
+}
+
+.guarantee-period-text {
+  color: white;
+}
+
+.guarantee-period-contents {
+  display: flex;
+  align-items: end;
+}
+
+.guarantee-period-content {
+  display: flex;
+  align-items: end;
+}
+
+.guarantee-period {
+  color: white;
+  font-family: Impact;
+  font-size: 32px;
+  margin: 0 10px;
+  margin-bottom: -5px;
+  user-select: all;
+  width: 40px;
+  text-align: right;
+}
+
+.guarantee-period-text {
+  color: white;
+  text-align: center;
+}
+.guarantee-period-text span {
+  font-size: 9px;
+}
+
+.guarantee-distance {
+  color: white;
+  font-family: Impact;
+  font-size: 32px;
+  margin: 0 10px;
+  margin-bottom: -5px;
+  user-select: all;
+  width: 40px;
+  text-align: right;
+}
+
+.guarantee-distance-text {
+  color: white;
+  font-size: 17px;
+}
+.guarantee-distance-text span {
+  font-size: 14px;
+}
+
+.no-guarantees {
+  position: relative;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.no-guarantees::before {
+  content: "";
+  display: block;
+  width: 95%;
+  height: 1px;
+  margin: 0 auto;
+  background-color: white;
+  position: absolute;
+  left: 5px;
+}
+
+.no-guaranteescheckboxes {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.no-guarantee {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  accent-color: skyblue;
+}
+
+.no-guarantee-text {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.vi-tables {
+  width: 55%;
+  background-color: rgb(0, 99, 73);
+}
+
+.vi_wrapper {
+  line-height: 45px;
+  border-bottom: 2px solid white;
+}
+
+.vi-tables_wrapper {
+  padding: 5px;
+}
+
+.tr {
+  display: flex;
+  margin-bottom: 3px;
+  align-items: center;
+}
+
+.th {
+  color: rgb(0, 99, 73);
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  background-color: white;
+  width: 30%;
+  text-align: justify;
+  text-align-last: justify;
+  padding: 3px 5px;
+}
+
+.has_riamrb-text2 {
+  margin-top: -5px;
+  letter-spacing: -4px;
+}
+
+.td {
+  display: flex;
+  width: 70%;
+  align-items: center;
+}
+
+.has_repair_wrapper {
+  border-bottom: 2px solid white;
+}
+
+.has_repair_history_wrapper {
+  display: flex;
+  margin: 0 20px 0 25px;
+}
+
+.vi_jc_wrapper {
+  align-items: flex-end;
+}
+
+.vi_jc {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Impact;
+  margin-left: 60px;
+}
+
+.vi_year {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Impact;
+  width: 45px;
+}
+
+.vi_year-tag {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: -6px;
+  margin-left: 7px;
+}
+
+.vi_month {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Impact;
+  margin-left: 60px;
+  width: 45px;
+}
+
+.vi_month-tag {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: -6px;
+  margin-left: 7px;
+}
+
+.vi_day {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Impact;
+  margin-left: 60px;
+}
+
+.vi_day-tag {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: -6px;
+  margin-left: 7px;
+}
+
+.mileage_tr {
+  line-height: 45px;
+  border-bottom: 2px solid white;
+}
+
+.mileage_wrapper {
+  align-items: end;
+}
+
+.mileage_k-km {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Impact;
+  margin-left: 45px;
+  margin-right: 2px;
+  width: 60px;
+  text-align: right;
+}
+
+.mileage_k-km-tag {
+  color: white;
+  font-size: 18px;
+  margin-bottom: -7px;
+  margin-right: 10px;
+}
+.mileage_k-km-tag span {
+  font-size: 12px;
+}
+
+.mileage_km {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Impact;
+  margin-left: 30px;
+  width: 140px;
+  text-align: right;
+}
+
+.mileage_km-tag {
+  color: white;
+  font-size: 32px;
+  font-family: Impact;
+  margin-bottom: -1px;
+}
+
+.ring-wrapper {
+    position: relative;
+}
+
+.has_repair_history {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+.usage_ring,
+.before_usage_ring,
+.ring {
+    width: 40px;
+    height: 40px;
+    border: 3px solid yellow;
+    border-radius: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.usage_ring,
+.before_usage_ring {
+    display: none;
+}
+
+
+.repair_history_dot {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 25px;
+}
+
+.not_repair_history {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.repair_history-text {
+  color: white;
+  font-size: 11px;
+}
+
+.riamrb_wrapper {
+  border-bottom: 2px solid white;
+}
+
+.has_riamrb {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0px 10px 0px 25px;
+}
+
+.riamrb_month {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Impact;
+  margin: 0px 10px 0px 25px;
+  width: 40px;
+}
+
+.riamrb_month-tag {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.riamrb_dot {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 25px;
+}
+
+.not_riamrb {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cars_val {
+  justify-content: space-around;
+}
+
+.private_car {
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.business_car {
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.rentalcar {
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.other {
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  height: 50px;
+  background-color: rgb(0, 99, 73);
+  justify-content: center;
+  margin: 5px 15px 15px 15px;
+}
+
+.footer-first-text {
+  font-size: 28px;
+  color: white;
+  line-height: 50px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.footer-second-text {
+  font-size: 34px;
+  color: white;
+  line-height: 50px;
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */

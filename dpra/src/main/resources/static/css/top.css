@@ -1,0 +1,237 @@
+.apps {
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: #0D6EFD;
+  background-image: url(../img/background-blue.jpg);
+  position: relative;
+}
+
+.apps_inner {
+  width: 1200px;
+  margin: 10px auto 0;
+}
+
+.apps_headers {
+  display: flex;
+  align-items: end;
+  padding: 30px 40px;
+}
+
+.apps_title {
+  color: white;
+}
+
+.apps_abouts {
+  display: flex;
+  color: white;
+  font-size: 17px;
+  justify-content: right;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.apps_howtouse {
+  margin: 0 20px;
+}
+
+.apps_wrapper {
+  padding: 0 50px;
+  display: flex;
+  width: 1200px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-47%, -35%);
+}
+
+.apps_lefts {
+  width: 500px;
+}
+
+.apps_top-text {
+  font-size: 58px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.apps_top-subtext1 {
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+}
+
+.apps_top-subtext2 {
+  font-size: 18px;
+  color: white;
+  margin-top: 10px;
+}
+.apps_go-app {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+.apps_go-app-innertext {
+  color: rgb(0, 96, 165);
+  padding: 20px 30px;
+  width: 300px;
+  border-radius: 100px;
+  background-color: white;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  margin: 20px 0 10px 0;
+}
+.apps_go-app-text {
+  font-size: 13px;
+  color: white;
+  margin-top: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.apps_rights {
+  width: 650px;
+  margin-left: auto;
+}
+
+.apps_rights_images > img {
+  width: 100%;
+}
+
+.top-footer {
+  position: absolute; /*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.top-footer_nav {
+  display: flex;
+  justify-content: center;
+}
+
+.footer_link {
+  color: white;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.footer_link-contact {
+  color: white;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer_allrights {
+  margin-top: 10px;
+  color: white;
+}
+
+.background-gray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.background-gray_inner {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(46, 46, 46);
+  opacity: 0.7;
+}
+
+.modals {
+  background-color: white;
+  border-radius: 3px;
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.modals_inner {
+  padding: 20px 30px;
+  position: relative;
+}
+
+.text-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.text-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.text_inner {
+  margin-top: 10px;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.badlucks {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.badluck_inner {
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+
+.badluck {
+  position: absolute;
+  width: 20px;
+  border-bottom: 1px solid black;
+  top: 30%;
+  right: 4%;
+}
+
+.badluck-1 {
+  transform: rotate(-45deg);
+  width: inherit;
+}
+
+.badluck-2 {
+  transform: rotate(45deg);
+  width: inherit;
+}
+
+.abouts_modals-badlucks {
+  top: 10%;
+  right: 4%;
+}
+
+.howtouse-modals_badlucks {
+  top: 40px;
+  right: 40px;
+}
+
+.appsUpdates_modals-badlucks {
+  top: 40px;
+  right: 40px;
+}
+
+.privacy_modals-badlucks {
+  top: 30px;
+  right: 30px;
+}
+
+.termsOfService-modals_badlucks {
+  top: 30px;
+  right: 30px;
+}/*# sourceMappingURL=top.css.map */

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/header :: head_fragment(title='プライスカード①')"></head>
+
+<!-- <body th:style="|background-image: url(@{/img/background-image.jpg}); background-repeat: repeat;|"> 冒頭と末尾に|を入れるのを忘れないで-->
+<body th:style="|background-image: url(@{/img/background-image.jpg}); background-repeat: repeat;|">
+
+    <div class="card" th:each="car : ${carList}">
+        <div class="content">
+            <!-- 社名部分 -->
+            <div class="headers">
+                <div class="header_left">
+                    <div class="company-name-label">販売会社名：</div>
+                    <div class="company-name" th:text="${shopName}" contenteditable="true"></div>
+                    <!-- <div class="company-name contenteditable" contenteditable="true" th:text="${employeeAffiliatedStore}"></div> -->
+                </div>
+                <div class="header_right">
+                    <!-- <img th:src="@{../../img/HELLO.jpeg}" alt="" class="header_logo"> -->
+                </div>
+            </div>
+            <!-- 車両情報部分 -->
+            <div class="names">
+                <div class="jc-tags">
+                    <div class="jc-tags_inner">
+                        <div class="jc-text1">初度</div>
+                        <div class="jc-text2">登録</div>
+                        <div class="jc-text3">(検査)</div>
+                    </div>
+                </div>
+                <div class="jcs">
+                    <div class="jcs_inner">
+                        <div class="japanese_calendar" th:if="${car.firstJc}" th:text="${car.firstJc.value}" contenteditable="true"></div>
+                        <div class="registration_year" th:text="${car.registrationYear}" contenteditable="true"></div>
+                        <div class="jc-unit">年</div>
+                        <div class="registration_month" th:text="${car.registrationMonth}" contenteditable="true"></div>
+                        <div class="jc-unit">月</div>
+                    </div>
+                </div>
+                <div class="models">
+                    <div class="models_inner">
+                        <div class="model-tags">車名：</div>
+                        <div class="maker" th:text="${car.maker}" style="margin-right: 10px;" contenteditable="true" id="carmaker"></div>
+                        <div class="car_model carname" th:text="${car.carModel}" contenteditable="true"></div>
+                    </div>
+                </div>
+                <div class="grades">
+                    <div class="grades_inner">
+                        <div class="grades-text">グレード・ミッション・排気量（主な仕様区分）</div>
+                        <div class="grade" th:text="${car.grade}" contenteditable="true" id="cargrade"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 金額部分 -->
+            <div class="mains">
+                <div class="payment-tags">
+                    <div class="payment-tags_inner">
+                        <div class="payment-tags_images">
+                            <img th:if="${shopImageBase64}" th:src="'data:image/png;base64,' + ${shopImageBase64}" alt="店舗画像" class="payment-img" style="width:145px; height:40px;">
+                        </div>
+                        <div class="payment-text">支払総額</div>
+                    </div>
+                </div>
+                <div class="total-prices">
+                    <div class="total-prices_inner">
+                        <div class="total-price totalprice" th:text="${car.totalPrice}" contenteditable="true"></div>
+                    </div>
+                </div>
+                <div class="recycles">
+                    <div class="recycles_inner">
+                        <div class="recycles-text">★支払総額には、保険料、税金(いずれも未経過相当含む)、リサイクル料金相当額、登録等に伴う費用等全ての費用が含まれています。</div>
+                        <div class="recycles-text recycles-text2">★リサイクル料金</div>
+                        <div class="depositeds">
+                            <div class="depositeds-wrapper">
+                                <input type="checkbox" class="deposited" name="" value="" checked>
+                                <div class="deposited-text">預託済み</div>
+                            </div>
+                            <div class="depositeds-attached">
+                                <input type="checkbox" class="deposited-attached" name="" id="">
+                                <div class="deposited-attached-text">廃棄時にリサイクル料金の追加が必要な装備が付いています。</div>
+                            </div>
+                        </div>
+                        <div class="not-depositeds">
+                            <input type="checkbox" class="not-deposited" name="" value="" >
+                            <div class="not-deposited-text">未預託(廃棄時に支払いが必要となります。)</div>
+                        </div>
+                    </div>
+                    <div class="total-price_dots-wrapper">
+                        <div class="total_price-dot_inner">
+                            <div class="total-price-dot">⚫︎</div>
+                            <div class="total-price-dpf_inner">
+                                <div class="total-price-dpf" th:text="${car.totalPriceDpf}" contenteditable="true"></div>
+                            </div>
+                        </div>
+                        <div class="mains-uom_inner">
+                            <div class="mains-uom">万円</div>
+                            <div class="mains-ticdd">(消費税込み)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 車両価格と諸費用の行 -->
+            <div class="price-ohde">
+                <div class="price-wrapper">
+                    <div class="price-tag">車両価格</div>
+                    <div class="prices">
+                        <div class="price_inner">
+                            <div class="price" th:text="${car.price}" contenteditable="true"></div>
+                        </div>
+                        <div class="price-dot">.</div>
+                        <div class="price-dpf_inner">
+                            <div class="price-dpf" th:text="${car.priceDpf}" contenteditable="true"></div>
+                        </div>
+                    </div>
+                    <div class="price-uom">万円</div>
+                </div>
+                <div class="ohde-wrapper">
+                    <div class="ohde-tag">諸費用</div>
+                    <div class="ohdes">
+                        <div class="ohde_inner">
+                            <div class="ohde" th:text="${car.calcPriceOfInt}" contenteditable="true"></div>
+                        </div>
+                        <div class="ohde-dot">.</div>
+                        <div class="ohde-dpf_inner">
+                            <div class="ohde-dpf" th:text="${car.calcPriceOfDpf}" contenteditable="true"></div>
+                        </div>
+                    </div>
+                    <div class="ohde-uom">万円</div>
+                </div>
+                <div class="price-ohde-text">
+                    <div class="price-ohde-text-inner">
+                        <div>支払総額は</div>
+                        <div class="price-ohde-month" contenteditable="true" th:text="${currentMonth}"></div>
+                        <div>月現在、</div>
+                        <div class="price-ohde-city" contenteditable="true"></div>
+                        <div>登録(届出)で店頭納車の場合の価格です。</div>
+                    </div>
+                    <div>お客様の要望に基づく整備やオプション等の費用は別途申し受けます。</div>
+                </div>
+            </div>
+            <!-- 整備・保障・車検等 -->
+            <div class="options">
+                <div class="options_inner">
+                    <!-- 定期点検整備の有無 -->
+                    <div class="maintenances">
+                        <div class="maintenances_wrapper">
+                            <div class="maintenances-title">定期点検整備の有無</div>
+                            <div class="with-maintenances">
+                                <div class="with-maintenances-checkboxes">
+                                    <input type="checkbox" class="with-maintenance" name="" value="" th:checked="${car.classification.value == '中古車'}">
+                                    <div class="with-maintenance-text">定期点検整備付</div>
+                                </div>
+                                <div class="with-maintenances-note">整備費用は車両価格に含みます。<br>★「点検整備記録簿」が交付されます。</div>
+                            </div>
+                            <div class="no-maintenances">
+                                <div class="no-maintenances-checkboxes">
+                                    <input type="checkbox" class="no-maintenance" name="" value="" th:checked="${car.classification.value == '新車・未使用車'}">
+                                    <div class="no-maintenance-text">定期点検整備なし</div>
+                                </div>
+                            </div>
+                            <div class="essential-maintenances">
+                                <div class="essential-maintenances-checkboxes">
+                                    <input type="checkbox" class="essential-maintenance" name="" value="">
+                                    <div class="essential-maintenance-text">要整備箇所があります</div>
+                                </div>
+                                <div class="essential-maintenances-note">★車両状態を表示した書面にて、<br>部位・状態をご確認下さい。</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 保証の有無 -->
+                    <div class="guarantees">
+                        <div class="guarantees_wrapper">
+                            <div class="guarantees-title">保証の有無</div>
+                            <div class="with-guarantees">
+                                <div class="with-guarantees-checkboxes">
+                                    <input type="checkbox" class="with-guarantee" name="" value="" checked>
+                                    <div class="with-guarantee-text">保証付<span>保証費用は車両価格に含みます。</span></div>
+                                </div>
+                                <div class="guarantee-details">
+                                    <div class="guarantee-details-text">⚪︎️保証内容<span style="margin-left: 5px;">※詳しくはスタッフにお尋ね下さい。</span></div>
+                                    <div class="guarantee-details-contents">
+                                        <div class="brackets-first">〔</div>
+                                        <div class="guarantee-details-content" contenteditable="true">部分保証</div>
+                                        <div class="brackets-end">〕</div>
+                                    </div>
+                                </div>
+                                <div class="guarantee-periods">
+                                    <div class="guarantee-period-text">⚪保証期間・保証走行距離</div>
+                                    <div class="guarantee-period-contents">
+                                        <div class="brackets-first">〔</div>
+                                        <div class="guarantee-period-content">
+                                            <div contenteditable="true" class="guarantee-period">1</div>
+                                            <div class="guarantee-period-text">ヵ月<span>又は</span></div>
+                                            <div contenteditable="true" class="guarantee-distance">1</div>
+                                            <div class="guarantee-distance-text">千<span>km</span></div>
+                                        </div>
+                                        <div class="brackets-end">〕</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="no-guarantees">
+                                <div class="no-guaranteescheckboxes">
+                                    <input type="checkbox" class="no-guarantee" name="" value="">
+                                    <div class="no-guarantee-text">保証なし</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 車検等 -->
+                    <div class="vi-tables">
+                        <div class="vi-tables_wrapper">
+                            <div class="tr vi_wrapper">
+                                <div class="th">車検証有効期限</div>
+                                <div class="td vi_jc_wrapper">
+                                    <div class="vi_jc" th:if="${car.viJc} != null" th:text="${car.viJc.value}" contenteditable="true"></div>
+                                    <div class="vi_year" th:if="${car.viYear} != null" th:text="${car.viYear}" contenteditable="true"></div>
+                                    <div class="vi_year-tag">年</div>
+                                    <div class="vi_month" th:if="${car.viMonth} != null" th:text="${car.viMonth}" contenteditable="true"></div>
+                                    <div class="vi_month-tag">月</div>
+                                    <div class="vi_day"><input class="price-card-vi-day" contenteditable="true"></div>
+                                    <div class="vi_day-tag">日</div>
+                                </div>
+                            </div>
+                            <div class="tr mileage_tr">
+                                <div class="th">走行距離</div>
+                                <div class="td">
+                                    <div class="mileage_k-km" th:if="${T(java.lang.Math).ceil(car.mileage / 1000).intValue() > 0}" th:text="${T(java.lang.Math).ceil(car.mileage / 1000).intValue()}" contenteditable="true"></div>
+                                    <div class="mileage_k-km" th:if="${T(java.lang.Math).ceil(car.mileage / 1000).intValue() <= 0}" th:text="' '" contenteditable="true"></div>
+                                    <div class="mileage_k-km-tag">千<span>km</span></div>
+                                    <div class="brackets-first">〔</div>
+                                    <div class="mileage_km" th:text="${car.mileage}" contenteditable="true"></div>
+                                    <div class="mileage_km-tag">km</div>
+                                    <div class="brackets-end">〕</div>
+                                </div>
+                            </div>
+                            <div class="tr has_repair_wrapper">
+                                <div class="th">修理歴</div>
+                                <div class="td">
+                                    <div class="has_repair_history_wrapper">
+                                        <div class="ring-wrapper">
+                                            <div class="has_repair_history repair_history" id="repair_history1">有</div>
+                                            <div class="ring"></div>
+                                        </div>
+                                        <div class="repair_history_dot">・</div>
+                                        <div class="ring-wrapper">
+                                            <div class="not_repair_history repair_history active" id="repair_history2">無</div>
+                                            <div class="ring"></div>
+                                        </div>
+                                    </div>
+                                    <div class="repair_history-text">有りの場合、車両状態を表示した書面にて、<br>部位・状態をご確認下さい。</div>
+                                </div>
+                            </div>
+                            <div class="tr riamrb_wrapper">
+                                <div class="th">
+                                    <p>前使用者の</p>
+                                    <p class="has_riamrb-text2">定期点検整備記録簿</p>
+                                </div>
+                                <div class="td before_usage-set">
+                                    <div class="ring-wrapper">
+                                        <div class="has_riamrb before_usage-history" id="before_usage-history1">有</div>
+                                        <div class="before_usage_ring"></div>
+                                    </div>
+                                    <div class="brackets-first">〔</div>
+                                    <div class="riamrb_month" contenteditable="true"></div>
+                                    <div class="riamrb_month-tag">ヵ月</div>
+                                    <div class="brackets-end">〕</div>
+                                    <div class="riamrb_dot">・</div>
+                                    <div class="ring-wrapper">
+                                        <div class="not_riamrb before_usage-history" id="before_usage-history2">無</div>
+                                        <div class="before_usage_ring"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tr">
+                                <div class="th">使用歴</div>
+                                <div class="td cars_val usage_set">
+                                    <div class="ring-wrapper">
+                                        <div class="private_car usage_history" id="usage_history1">自家用車</div>
+                                        <div class="usage_ring"></div>
+                                    </div>
+                                    <div class="ring-wrapper">
+                                        <div class="business_car usage_history" id="usage_history2">営業車</div>
+                                        <div class="usage_ring"></div>
+                                    </div>
+                                    <div class="ring-wrapper">
+                                        <div class="rentalcar usage_history" id="usage_history3">レンタカー</div>
+                                        <div class="usage_ring"></div>
+                                    </div>
+                                    <div class="ring-wrapper">
+                                        <div class="other usage_history" id="usage_history4">その他</div>
+                                        <div class="usage_ring"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="footer-first-text">一般社団法人</div>
+                    <div class="footer-second-text">自動車公正取引協議会 ・ 会員</div>
+                </div>
+            </div>
+        </div>
+        <div class="pricecard_btns mb-4">
+            <div class="pricecard_btns_inner">
+                <a th:href="@{/cars/template}" class="pricecard_other-btn">他のプライスボードのデザインを見る</a>
+                <a th:href="@{/cars/list}" class="pricecard_goto-cars_list">車両一覧へ戻る</a>
+                <button class="downloadPdf pricecard_downloadPdf">PDFダウンロード</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const downloadPdfBtns = document.querySelectorAll('.downloadPdf');
+        const contents = document.querySelectorAll('.content');
+        for (let i = 0; i < downloadPdfBtns.length; i++) {
+            downloadPdfBtns[i].addEventListener('click', function() {
+
+                // クリックされたボタンが属している .card の中の .content を取ってくる
+                const content = this.closest(".card").querySelector(".content");
+
+                // HTMLをCanvasに変換
+                html2canvas(content).then(function(canvas) {
+                    // Canvasを画像データに変換
+                    const imgData = canvas.toDataURL('image/png');
+
+                    // jsPDFを使ってPDFを作成
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF('landscape', 'mm', 'a4'); // A4 横向き
+
+                    const imgWidth = canvas.width;
+                    const imgHeight = canvas.height;
+
+                    const pageWidth = 297;
+                    const pageHeight = 210;
+
+                    const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
+                    const scaleWidth = imgWidth * ratio;
+                    const scaleHeight = imgHeight * ratio;
+
+                    const marginLeft = (pageWidth - scaleWidth) / 2;
+                    const marginTop = (pageHeight - scaleHeight) / 2;
+
+                    // PDFに画像を追加 (imgDataはCanvasから作成した画像データ)
+                    pdf.addImage(imgData, 'PNG', marginLeft, marginTop, scaleWidth, scaleHeight); // 画像の位置とサイズを指定
+
+                    // PDFをダウンロード
+                    const carname = content.querySelector(".carname");
+                    const price = content.querySelector(".price");
+                    const totalPrice = content.querySelector(".totalprice");
+                    const pdfName = carname.textContent + price.textContent + "-" + totalPrice.textContent;
+                    pdf.save(pdfName + '.pdf');
+                }).catch(function(error) {
+                    console.error("html2canvasのエラー:", error);
+                });
+            });
+        }
+
+        document.querySelectorAll('.contenteditable').forEach(e => {
+           e.addEventListener("focus", () => {
+            const range = document.createRange();
+            range.selectNodeContents(e);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+           });
+        });
+
+        // プライスの文字を縮小させる
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceEl = document.querySelector('.total-price');
+            const containerEl = document.querySelector('.total-prices_inner');
+
+            function adjustFontSize() {
+                const text = priceEl.textContent.trim();
+                let fontSize;
+                // 入力されたプライスが3桁までだったら350px、4桁以上だったら270
+                if (text.length <= 3) {
+                    // 3桁以下なら350px
+                    fontSize = 350;
+                } else {
+                    // 4桁以上なら例えば270pxにする（好きに調整してOK）
+                    fontSize = 270;
+                }
+                priceEl.style.fontSize = fontSize + 'px';
+            }
+
+            adjustFontSize(); // ページロード時に一回実行
+            priceEl.addEventListener('input', adjustFontSize); // 入力時にも実行
+        });
+
+        //修理歴の「 有・無 」のまる印
+        document.addEventListener("DOMContentLoaded", () => {
+          const wrappers = document.querySelectorAll(".has_repair_history_wrapper");
+
+          wrappers.forEach(wrapper => {
+            const histories = wrapper.querySelectorAll(".repair_history");
+            const rings = wrapper.querySelectorAll(".ring");
+
+            // 初期状態：activeに対応するringを表示
+            histories.forEach((el, index) => {
+              if (el.classList.contains("active")) {
+                rings[index].style.display = "block";
+              } else {
+                rings[index].style.display = "none";
+              }
+            });
+
+            // クリック時の切り替え処理
+            histories.forEach((historyEl, index) => {
+              historyEl.addEventListener("click", () => {
+                // activeクラス切り替え
+                histories.forEach(el => el.classList.remove("active"));
+                historyEl.classList.add("active");
+
+                // ring表示切り替え
+                rings.forEach((ring, i) => {
+                  ring.style.display = (i === index) ? "block" : "none";
+                });
+              });
+            });
+          });
+        });
+
+        //前使用者の「 有・無 」まる印
+        document.addEventListener("DOMContentLoaded", () => {
+          const beforeUsageSets = document.querySelectorAll(".before_usage-set");
+
+          beforeUsageSets.forEach(set => {
+            const histories = set.querySelectorAll(".before_usage-history");
+            const rings = set.querySelectorAll(".before_usage_ring");
+
+            histories.forEach((historyEl, index) => {
+              historyEl.addEventListener("click", () => {
+                // リングの表示切り替え
+                rings.forEach((ringEl, ringIndex) => {
+                  ringEl.style.display = (index === ringIndex) ? "block" : "none";
+                });
+
+                // 選択状態のスタイル切り替え（任意）
+                histories.forEach(el => el.classList.remove("active"));
+                historyEl.classList.add("active");
+              });
+            });
+          });
+        });
+
+
+        //使用歴のまる印
+        const usageHistoriesTest = [
+            document.getElementById("usage_history1"),
+            document.getElementById("usage_history2"),
+            document.getElementById("usage_history3"),
+            document.getElementById("usage_history4")
+        ];
+        const usageHistories = [
+            document.querySelectorAll(".usage_history1"),
+            document.querySelectorAll(".usage_history2"),
+            document.querySelectorAll(".usage_history3"),
+            document.querySelectorAll(".usage_history4")
+        ];
+        const usageRings = document.querySelectorAll(".usage_ring");
+        document.addEventListener("DOMContentLoaded", () => {
+          const usageSets = document.querySelectorAll(".usage_set");
+
+          usageSets.forEach(set => {
+            const histories = set.querySelectorAll(".usage_history");
+            const rings = set.querySelectorAll(".usage_ring");
+
+            histories.forEach((historyEl, index) => {
+              historyEl.addEventListener("click", () => {
+                rings.forEach((ringEl, ringIndex) => {
+                //   ringEl.style.display = (index === ringIndex) ? "block" : "none";
+                  ringEl.style.display = (index === ringIndex) ? "block" : "none";
+                });
+              });
+            });
+          });
+        });
+
+        // 各 usage_history にクリックイベントを付ける
+        usageHistories.forEach((el, index) => {
+          el.addEventListener("click", () => {
+            updateUsageRing(index);
+          });
+        });
+
+
+    </script>
+</body>
+</html>

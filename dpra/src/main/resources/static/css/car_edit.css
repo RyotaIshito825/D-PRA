@@ -1,0 +1,195 @@
+.content-mains {
+  width: 1200px;
+  margin: 0 auto;
+}
+.car_edits_form {
+  width: 100%;
+}
+
+.car_edits {
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.car_edits_tables {
+  margin-left: 20px;
+  width: 80%;
+}
+
+.car_edits_tables-tr_inputs {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+.car_edits-tables-tr_input-wrapper_inner {
+  display: flex;
+  align-items: end;
+}
+
+.car_edits_tables-th {
+  width: 150px;
+  color: rgb(0, 153, 213);
+  font-weight: bold;
+}
+
+.car_edits_tables-td {
+  padding: 10px;
+  border: 0.5px solid gray;
+}
+
+.car_edits_tables-td-maker {
+  width: 250px;
+}
+
+.car_edits_tables-td-car_model {
+  width: 350px;
+}
+
+.car_edits_tables-td-grade {
+  width: 600px;
+}
+
+.car_edits_tables-classification {
+  width: 200px;
+  padding: 12px 10px;
+  border: 1px solid rgb(198, 198, 198);
+}
+
+.car_edits_tables-td-first_jc {
+  margin-right: 5px;
+  padding: 12px 0;
+  border: 1px solid rgb(198, 198, 198);
+}
+
+.car_edits_tables-td-registration_year {
+  width: 50px;
+}
+
+.car_edits_tables-td-registration_month {
+  width: 50px;
+}
+
+.car_edits_tables-td-separator {
+  border: none;
+  padding: 0px 5px;
+}
+
+.car_edits_tables-tr_inputs-vehicle_inspections {
+  margin-bottom: 20px;
+}
+
+.car_edits_tables-th-vehicle_inspections-selects {
+  border: none;
+}
+.car_edits_tables-th-vehicle_inspections-selects input {
+  margin-right: 5px;
+}
+
+.car_edits_tables-th-vehicle_inspections-selects-presence {
+  width: 1.3em;
+  height: 1.3em;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  margin-block: calc((1lh - 1.5em) / 2);
+  block-size: 1.5em;
+  inline-size: 1.5em;
+  vertical-align: middle;
+  vertical-align: bottom;
+}
+
+.car_edits_tables-th-vehicle_inspections-selects-absence {
+  margin-left: 20px;
+  width: 1.3em;
+  height: 1.3em;
+  font-size: inherit;
+  line-height: inherit;
+  margin-block: calc((1lh - 1.5em) / 2);
+  block-size: 1.5em;
+  inline-size: 1.5em;
+  vertical-align: middle;
+  vertical-align: bottom;
+}
+
+.car_edits_tables-td-vi_jc {
+  margin-right: 5px;
+  padding: 12px 0;
+  border: 1px solid rgb(198, 198, 198);
+}
+
+.car_edits_tables-td-vi_year {
+  width: 50px;
+}
+
+.car_edits_tables-td-vi_month {
+  width: 50px;
+}
+
+.car_edits_tables-td-price {
+  width: 60px;
+}
+
+.car_edits_tables-td-price_dpf {
+  width: 30px;
+  padding: 5px;
+}
+
+.car_edits_tables-td-total-price {
+  width: 60px;
+}
+
+.car_edits_tables-td-total-price_dpf {
+  width: 30px;
+  padding: 5px;
+}
+
+.car_edits_tables-td-mileage {
+  width: 150px;
+}
+
+.car_edits_tables-td-name {
+  width: 300px;
+}
+
+.car_edits_tables-td-department {
+  width: 300px;
+}
+
+.errors {
+  margin-top: 3px;
+}
+
+.error_message {
+  font-weight: bold;
+  display: none;
+  color: red;
+}
+
+.car_edits_edit-btns {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.car_edits_edit-btn {
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: rgb(0, 153, 213);
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+.car_edits-update-btn {
+  width: 80px;
+  margin-left: 10px;
+  padding: 12px 0px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+}/*# sourceMappingURL=car_edit.css.map */

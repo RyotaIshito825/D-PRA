@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/header :: head_fragment(title = 'PbCAトップ')">
+
+</head>
+
+<body style="overflow: hidden;">
+
+    <div class="apps">
+        <div class="apps_inner">
+
+            <div class="apps_headers">
+                <h1 class="apps_title">Price board Creation App</h1>
+                <div class="apps_abouts">
+                    <div class="apps_about" id="apps_about">このサイトについて</div>
+                    <div class="apps_howtouse" id="apps_howtouse">使いかた</div>
+                    <div class="apps_updates" id="apps_updates">更新履歴</div>
+                </div>
+            </div>
+
+            <div class="apps_wrapper">
+                <div class="apps_lefts">
+                    <div class="apps_top-text">総額表示カードが<br>一括で作成できる</div>
+                    <div class="apps_top-subtext1">テンプレートをダウンロードし車両情報を入力</div>
+                    <div class="apps_top-subtext2">し取込みするだけ。あとは一括PDFでダウンロード。</div>
+                    <a th:href="@{/cars/list}" class="apps_go-app">
+                        <div class="apps_go-app-innertext">早速使ってみる(無料)</div>
+                    </a>
+                    <div class="apps_go-app-text">※登録ナシでご利用できます。</div>
+                </div>
+                <div class="apps_rights">
+                    <div class="apps_rights_inner">
+                        <div class="apps_rights_images">
+                            <img th:src="@{/img/mock.png}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="top-footer">
+                <div class="top-footer_inner">
+                    <div class="top-footer_nav">
+                        <div class="footer_link" id="privacy">プライバシーポリシー</div>
+                        <div class="footer_link" id="terms-of-service">利用規約</div>
+                        <a href="https://x.com/Ryomi410" class="footer_link-contact" id="contact">お問い合わせ</a>
+                    </div>
+                    <div class="footer_allrights">2025 Ryomi410. All rights reserved</div>
+                </div>
+            </footer>
+
+
+            <div class="background-gray" id="background-gray">
+                <div class="background-gray_inner"></div>
+            </div>
+
+            <div class="abouts_modals modals" id="abouts_modals">
+                <div class="abouts_modal_inner modals_inner">
+                    <div class="text-title">このサイトについて</div>
+                    <div class="text_inner">
+                        <div class="text">・車両販売時に義務化となっている総額表示プライスカードがPDF形式で作成可能</div>
+                        <div class="text">・一括作成可能、個別作成も可能</div>
+                        <div class="text">・テンプレートは複数から選べる（2025年7月現在2種類のみ）</div>
+                        <div class="text">・店名 &会社ロゴを登録してオリジナルカードが作成可能</div>
+                        <div class="text">・スマホ・タブレットのレスポンシブに対応しておりません。</div>
+                        <div class="text">・Google Chromeのみ動作確認を行なっております。それ以外の環境での動作は保証しておりませんのでご了承ください。</div>
+                    </div>
+                    <div class="abouts_modals-badlucks badlucks">
+                        <div class="abouts_modals-badlucks_inner badluck_inner">
+                            <div class="abouts_modals-badluck badluck badluck-1"></div>
+                            <div class="abouts_modals-badluck badluck badluck-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="howtouse-modals modals" id="howtouse-modals">
+                <div class="howtouse-modals_inner modals_inner">
+                    <div class="text-title">使いかた</div>
+                    <div class="text-subtitle">車両を個別に登録する場合</div>
+                    <div class="text_inner">
+                        <div class="text">1.まずは店名と画像登録しよう！(画像は無くてもOK)</div>
+                        <div class="text">2.テンプレートを選択しよう！</div>
+                        <div class="text">3.車両情報を登録しよう！</div>
+                        <div class="text">4.pdf作成ボタンを押してPDFを作成しよう！</div>
+                        <div class="text">5.いざダウンロード！</div>
+                    </div>
+                    <div class="text-subtitle">車両を一括に登録する場合</div>
+                    <div class="text_inner">
+                        <div class="text">1.Excelのテンプレートをダウンローしてあらかじめ車両を入力しておこう！</div>
+                        <div class="text">2.入力してテンプレートを取込しよう！</div>
+                        <div class="text">3.店名と画像登録しよう！(画像は無くてもOK)</div>
+                        <div class="text">4.テンプレートを選択しよう！</div>
+                        <div class="text">5.車両情報を登録しよう！</div>
+                        <div class="text">6.pdf作成ボタンを押してPDFを作成しよう！</div>
+                        <div class="text">7.いざダウンロード！</div>
+                    </div>
+                    <div class="text-subtitle">注意事項</div>
+                    <div class="text_inner">
+                        <div class="text">Excelテンプレートの列は増やしたり減らしたりしないで！</div>
+                        <div class="text">入力欄には適切な値を入れましょう！</div>
+                        <div class="text">作成したカード上でも値の変更は可能です！</div>
+                    </div>
+                    <div class="howtouse-modals_badlucks badlucks">
+                        <div class="howtouse-modals_badluck_inner badluck_inner">
+                            <div class="howtouse-modals_badluck badluck badluck-1"></div>
+                            <div class="howtouse-modals_badluck badluck badluck-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="appsUpdates_modals modals" id="appsUpdates_modals">
+                <div class="appsUpdates_modal_inner modals_inner">
+                    <div class="text-title">更新情報</div>
+                    <div class="text_inner">
+                        <div class="text">・特になし</div>
+                    </div>
+                    <div class="appsUpdates_modals-badlucks badlucks">
+                        <div class="appsUpdates_modals-badlucks_inner badluck_inner">
+                            <div class="appsUpdates_modals-badluck badluck badluck-1"></div>
+                            <div class="appsUpdates_modals-badluck badluck badluck-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="privacy_modals modals" id="privacy_modals">
+                <div class="privacy_modal_inner modals_inner">
+                    <div class="text-title">プライバシーポリシー</div>
+                    <div class="text_inner">
+                        <div class="text">本アプリ「車両総額表示プライスカード作成アプリ」は、個人で開発・運営しています。</div>
+                        <div class="text">ユーザーの個人情報を収集・保存・第三者提供することは一切ありません。</div>
+                        <div class="text">入力された車両情報などのデータは、アプリ内でのみ使用され、外部に送信されることはありません。</div>
+                        <div class="text">安心してご利用ください。</div>
+                    </div>
+                    <div class="privacy_modals-badlucks badlucks">
+                        <div class="privacy_modals-badlucks_inner badluck_inner">
+                            <div class="privacy_modals-badluck badluck badluck-1"></div>
+                            <div class="privacy_modals-badluck badluck badluck-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="termsOfService-modals modals" id="termsOfService-modals">
+                <div class="termsOfService-modals_inner modals_inner">
+                    <div class="text-title">利用規約</div>
+                    <div class="text-subtitle">本アプリ「車両総額表示プライスカード作成アプリ」（以下「本アプリ」）は、個人が開発・運営しているツールです。以下の内容に同意の上、ご利用ください。</div>
+                    <div class="text-subtitle">1. 利用について</div>
+                    <div class="text_inner">
+                        <div class="text">本アプリは、ユーザーご自身の責任においてご利用ください。車両情報の入力・出力結果の正確性については保証いたしかねます。</div>
+                    </div>
+                    <div class="text-subtitle">2. 禁止事項</div>
+                    <div class="text_inner">
+                        <div class="text">以下の行為は禁止とします。</div>
+                        <div class="text">・本アプリの不正利用</div>
+                        <div class="text">・法令または公序良俗に反する目的での使用</div>
+                        <div class="text">・本アプリの内容やソースコードの無断転載・再配布</div>
+                    </div>
+                    <div class="text-subtitle">3. 免責事項</div>
+                    <div class="text_inner">
+                        <div class="text">本アプリの利用により生じたいかなる損害においても、開発者は一切の責任を負いません。</div>
+                    </div>
+                    <div class="text-subtitle">4. 変更・停止</div>
+                    <div class="text_inner">
+                        <div class="text">本アプリは予告なく内容の変更または提供の停止を行うことがあります。</div>
+                    </div>
+                    <div class="termsOfService-modals_badlucks badlucks">
+                        <div class="termsOfService-modals_badluck_inner badluck_inner">
+                            <div class="termsOfService-modals_badluck badluck badluck-1"></div>
+                            <div class="termsOfService-modals_badluck badluck badluck-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+
+        const aboutsModals = document.getElementById("abouts_modals");
+        const backgroundGray = document.getElementById("background-gray");
+        const appsAbout = document.getElementById("apps_about");
+        const appsHowtouse = document.getElementById("apps_howtouse");
+        const howtouseModals = document.getElementById("howtouse-modals");
+        const appsUpdates = document.getElementById("apps_updates");
+        const appsUpdatesModals = document.getElementById("appsUpdates_modals");
+        const privacy = document.getElementById("privacy");
+        const termsOfService = document.getElementById("terms-of-service");
+        const contact = document.getElementById("contact");
+        const privacyModals = document.getElementById("privacy_modals");
+        const termsOfServiceModals = document.getElementById("termsOfService-modals");
+
+
+        const badlucks = document.querySelectorAll(".badlucks");
+
+        appsAbout.addEventListener("click", () => {
+            aboutsModals.style = "display: block;";
+            backgroundGray.style = "display: block;";
+        });
+        appsHowtouse.addEventListener("click", () => {
+            howtouseModals.style = "display: block;";
+            backgroundGray.style = "display: block;";
+        });
+        appsUpdates.addEventListener("click", () => {
+            appsUpdatesModals.style = "display: block;";
+            backgroundGray.style = "display: block;";
+        });
+        privacy.addEventListener("click", () => {
+            privacyModals.style = "display: block;";
+            backgroundGray.style = "display: block;";
+        });
+        termsOfService.addEventListener("click", () => {
+            termsOfServiceModals.style = "display: block;";
+            backgroundGray.style = "display: block;";
+        });
+
+
+
+        badlucks.forEach(badluck => {
+            badluck.addEventListener("click", () => {
+                backgroundGray.style = "display: none;";
+                aboutsModals.style = "display: none;";
+                howtouseModals.style = "display: none;";
+                privacyModals.style = "display: none;";
+                termsOfServiceModals.style = "display: none;";
+                appsUpdatesModals.style = "display: none;";
+
+            });
+        });
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/header :: head_fragment(title = '車両情報更新')">
+
+<body class="">
+
+    <div class="contents">
+            <!-- サイドバー -->
+            <div th:replace="commons/side_bar :: side_bar"></div>
+
+            <!-- メイン -->
+            <div class="content-mains">
+                <div class="content-mains_inner">
+                    <div class="page_title">車両情報更新</div>
+
+                    <form th:action="@{/cars/update/submit(index=${index})}" method="post" class="car_edits_form">
+                        <div class="car_edits" th:object="${car}">
+                            <div class="car_edits_tables">
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-maker">メーカー</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <input type="text" class="car_edits_tables-td car_edits_tables-td-maker" th:field="*{maker}">
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{maker}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-car_model">車種</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <input type="text" class="car_edits_tables-td car_edits_tables-td-car_model" th:field="*{carModel}">
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{carModel}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-grade">グレード</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <input type="text" class="car_edits_tables-td car_edits_tables-td-grade" th:field="*{grade}">
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{grade}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-classification">区分</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <select id="" class="car_edits_tables-classification" th:field="*{classification}">
+                                                <option th:each="item:${T(com.ishito.sample.dpra.entity.Car.Classification).values()}" th:value="${item}" th:text="${item.getValue()}" th:selected="*{classification} == ${item}"></option>
+                                            </select>
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{classification}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-first_registrations">初度登録</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <div class="car_edits-tables-tr_input-wrapper_inner">
+                                                <select id="" class="car_edits_tables-td-first_jc" th:field="*{firstJc}">
+                                                    <option th:each="item:${T(com.ishito.sample.dpra.entity.Car.JapaneseCalendar).values()}" th:value="${item}" th:text="${item.getValue()}" th:selected="${firstJc} == ${item}"></option>
+                                                </select>
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-registration_year" th:field="*{registrationYear}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator car_edits_tables-td-separator-year">年</div>
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-registration_month" th:field="*{registrationMonth}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator car_edits_tables-td-separator-month">月</div>
+                                            </div>
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{registrationYear}"></div>
+                                                <div class="" th:errors="*{registrationMonth}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs car_edits_tables-tr_inputs-vehicle_inspections">
+                                        <div class="car_edits_tables-th car_edits_tables-th-vehicle_inspections">車検有無</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <div class="car_edits_tables-td car_edits_tables-th-vehicle_inspections-selects">
+                                                <input type="radio" name="radio" th:checked="*{viYear != null}" value="YES" th:field="*{vehicleInspectionStatus}" class="car_edits_tables-th-vehicle_inspections-selects-presence">有
+                                                <input type="radio" name="radio" th:checked="*{viYear == null}" value="NO" th:field="*{vehicleInspectionStatus}" class="car_edits_tables-th-vehicle_inspections-selects-absence">無
+                                            </div>
+                                            <div class="car_edits-tables-tr_input-wrapper_inner">
+                                                <select name="" id="" class="car_edits_tables-td-vi_jc" th:field="*{viJc}">
+                                                    <option value=""></option>
+                                                    <option th:each="item:${T(com.ishito.sample.dpra.entity.Car.JapaneseCalendar).values()}" th:value="${item}" th:text="${item.getValue()}" th:selected="${viJc} == ${item}"></option>
+                                                </select>
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-vi_year" th:field="*{viYear}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator car_edits_tables-td-separator-year">年</div>
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-vi_month" th:field="*{viMonth}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator car_edits_tables-td-separator-month">月</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-prices">プライス</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <div class="car_edits-tables-tr_input-wrapper_inner">
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-price" th:field="*{price}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator">.</div>
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-price_dpf" th:field="*{priceDpf}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator car_edits_tables-td-price_yen">万円</div>
+                                            </div>
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{price}"></div>
+                                                <div class="" th:errors="*{priceDpf}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-total-prices">総額</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <div class="car_edits-tables-tr_input-wrapper_inner">
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-total-price" th:field="*{totalPrice}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator">.</div>
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-total-price_dpf" th:field="*{totalPriceDpf}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator car_edits_tables-td-total-price_yen">万円</div>
+                                            </div>
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{totalPrice}"></div>
+                                                <div class="" th:errors="*{totalPriceDpf}"></div>
+                                            </div>
+                                            <div style="display: none;">
+                                                <input type="hidden" th:field="*{calcPriceOfInt}">
+                                                <input type="hidden" th:field="*{calcPriceOfDpf}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_tables-tr">
+                                    <div class="car_edits_tables-tr_inputs">
+                                        <div class="car_edits_tables-th car_edits_tables-th-total-mileages">走行距離</div>
+                                        <div class="car_edits-tables-tr_input-wrapper">
+                                            <div class="car_edits-tables-tr_input-wrapper_inner">
+                                                <input type="text" class="car_edits_tables-td car_edits_tables-td-mileage" th:field="*{mileage}">
+                                                <div class="car_edits_tables-td car_edits_tables-td-separator">km</div>
+                                            </div>
+                                            <div class="text-danger">
+                                                <div class="" th:errors="*{mileage}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_edits_edit-btns">
+                                    <a th:href="@{/cars/list}" class="car_edits_edit-btn">戻る</a>
+                                    <button type="submit" class="car_edits-update-btn">更新</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

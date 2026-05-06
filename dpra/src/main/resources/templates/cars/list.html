@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/header :: head_fragment(title = '車両一覧')"></head>
+
+<body class="">
+    <div class="contents">
+        <!-- サイドバー -->
+        <div th:replace="commons/side_bar :: side_bar"></div>
+
+        <!-- メイン -->
+        <div class="cars_list-content-mains">
+            <div class="content-mains_inner">
+                <div class="page_title">車両一覧</div>
+
+                <div class="car_list-btns">
+                    <a th:href="@{/cars/add}" class="car_list-btn-new">新規作成</a>
+                    <a th:href="@{/cars/intake}" class="car_list-btn-data-intake">データ取込</a>
+                </div>
+
+                <div class="car_list-searches-container">
+                    <div class="car_list-batch-processings">
+                        <form th:action="@{/generate-pdfs}" method="get" class="car_list-batch-select">
+                            <select name="option" id="" class="car_list-batch-select">
+                                <option value=""></option>
+                                <!-- <option value="create">pdf作成</option> -->
+                                <option value="create">一括作成</option>
+                                <option value="delete">一括削除</option>
+                            </select>
+                            <button type="submit" class="car_list-batch-select-btn">実行</button>
+
+                            <div class="cars_tables-tbody" style="display: none;">
+                                <th:block th:if="${carList != null }" th:each="car : ${carList}">
+                                    <input type="checkbox" class="cars_tables-tbody-checkbox-hidden" th:value="${car.id}" name="id" />
+                                </th:block>
+                            </div>
+                            <input type="hidden" th:if="${priceCardName != null}" name="priceCardName" th:value="${priceCardName}">
+                            <!-- <input type="hidden" th:if="${employee}" name="employeeId" th:value="${employee.id}"> -->
+                        </form>
+                    </div>
+
+                    <div class="car_list-keyword-searches">
+                        <form th:action="@{/cars/list}" method="get" class="" style="display: flex; align-items: center;">
+                            <div class="car_list-keyword-search">
+                                <label for="" class="car_list-keyword-value-label">キーワードで絞る</label>
+                                <div class="car_list-keyword-values">
+                                    <input type="text" name="keyword" th:value="${keyword}" class="car_list-keyword-value" id="searchKey">
+                                </div>
+                            </div>
+                            <div class="car_list-keyword-search">
+                                <label for="" class="car_list-keyword-value-label">金額で絞る</label>
+                                <div class="car_list-price-searches">
+                                    <input type="text" name="minPrice" th:value="${minPrice}" class="car_list-price-value car_list-price-value1" id="searchMinPrice">
+                                    <div class="car_list-price-search-separator">〜</div>
+                                    <input type="text" name="maxPrice" th:value="${maxPrice}" class="car_list-price-value car_list-price-value2" id="searchMaxPrice">
+                                </div>
+                            </div>
+                            <button type="submit" value="" class="car_list-keyword-search-btn">検索</button>
+                            <div class="car_list-search-reset-btn" id="resetBtn">リセット</div>
+                        </form>
+                    </div>
+
+                    <form th:action="@{/generate-pdfs}" method="get" class="car_list-selected-pricecards">
+                        <div class="car_list-selected-pricecards">
+                            <div class="car_list-selected-pricecard-wrapper" style="width: 160px;">
+                                <label for="" class="car_list-selected-pricecard-label">選択テンプレート</label>
+                                <div class="car_list-selected-pricecard" th:if="${priceCardName != null}" th:text="${priceCardName}" style="font-size: 12px;"></div>
+                                <div class="car_list-selected-pricecard" th:if="${priceCardName == null}" th:text="選択されていません"></div>
+                            </div>
+
+                            <div class="car_list-pdf-creates">
+                                <input type="submit" name="option" value="pdf作成" class="car_list-pef-create-input" id="car_list-pdf-create-input">
+                                <input type="hidden" th:if="${priceCardName != null}" name="priceCardName" th:value="${priceCardName}">
+                            </div>
+                        </div>
+                        <div class="cars_tables-tbody" style="display: none;">
+                            <th:block th:if="${carList != null}" th:each="car : ${carList}">
+                                <input type="checkbox" class="cars_tables-tbody-checkbox-hidden2" th:value="${car.id}" name="id" />
+                            </th:block>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="cars_tables">
+                    <div class="cars_tables-thead">
+                        <div class="cars_tables-thead-allcheckboxes">
+                            <input type="checkbox" name="" value="" class="cars_tables-thead-allcheckbox" id="cars_tables-allcheckbox">
+                        </div>
+                        <div class="cars_tables-thead-ths">
+                            <div class="cars_tables-thead-th">メーカー</div>
+                            <div class="cars_tables-thead-th">車種</div>
+                            <div class="cars_tables-thead-th">グレード</div>
+                            <div class="cars_tables-thead-th">区分</div>
+                            <div class="cars_tables-thead-th">初度登録</div>
+                            <div class="cars_tables-thead-th">車検有無</div>
+                            <div class="cars_tables-thead-th">プライス</div>
+                            <div class="cars_tables-thead-th">総額</div>
+                            <div class="cars_tables-thead-th">走行距離</div>
+                        </div>
+                    </div>
+
+                    <div class="cars_tables-tbody-wrapper">
+                        <!-- <div class="cars_tables-tbody" th:each="car, stat : ${page.content}"> -->
+                        <div class="cars_tables-tbody" th:each="car : ${carList}">
+                            <form th:action="@{/generate-pdf}" method="get" class="cars_tables-tbody_item">
+                                <div class="cars_tables-tbody-checkboxes">
+                                    <input type="checkbox" class="cars_tables-tbody-checkbox" th:value="${car.id}" name="carId">
+                                </div>
+                                <div class="cars_tables-tbody-tr">
+                                    <a th:href="@{/cars/update(index=${car.id})}" class="cars_tables-tbody-href">
+                                    <!-- <a th:href="''" class="cars_tables-tbody-href"> -->
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-maker" th:text="${car.maker}"></div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-car_model" th:text="${car.carModel}"></div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-grade" th:text="${car.grade}"></div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-classification" th:text="${car.classification.getValue()}"></div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-first_registrations">
+                                            <div class="cars_tables-tbody-td-first_jc" th:text="${car.firstJc.getValue()}"></div>
+                                            <div class="cars_tables-tbody-td-registration_year" th:text="${car.registrationYear}"></div>
+                                            <div class="cars_tables-tbody-td-separator cars_tables-td-small">年</div>
+                                            <div class="cars_tables-tbody-td-registration_month" th:text="${car.registrationMonth}"></div>
+                                            <div class="cars_tables-tbody-td-separator cars_tables-td-small">月</div>
+                                        </div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-vehicle_inspections">
+                                            <div class="cars_tables-tbody-td-vehicle_inspections-wrapper" th:if="${car.vehicleInspectionStatus.name() != 'NO' and car.viJc != null and car.viYear != '' and car.viYear != 0 and car.viMonth != '' and car.viMonth != 0}">
+                                                <div class="cars_tables-tbody-td-vi_jc" th:if="${car.viJc}" th:text="${car.viJc.getValue()}"></div>
+                                                <div class="cars_tables-tbody-td-vi_year" th:text="${car.viYear}"></div>
+                                                <div class="cars_tables-tbody-td-separator cars_tables-td-small">年</div>
+                                                <div class="cars_tables-tbody-td-vi_month" th:text="${car.viMonth}"></div>
+                                                <div class="cars_tables-tbody-td-separator cars_tables-td-small">月</div>
+                                            </div>
+                                            <div class="cars_tables-tbody-td-vi_jc" th:if="${car.vehicleInspectionStatus.name() == 'NO' or car.viJc == null or car.viYear == '' or car.viYear == 0 or car.viMonth == '' or car.viMonth == 0}" th:text="車検2年付"></div>
+                                        </div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-prices">
+                                            <div class="cars_tables-tbody-td-price" th:text="${car.price}"></div>
+                                            <div class="cars_tables-tbody-td-separator cars_tables-td-small">.</div>
+                                            <div class="cars_tables-tbody-td-price_dpf cars_tables-td-small" th:text="${car.priceDpf}"></div>
+                                            <div class="cars_tables-tbody-td-separator cars_tables-td-small">万円</div>
+                                        </div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-total_prices">
+                                            <div class="cars_tables-tbody-td-total_price" th:text="${car.totalPrice}"></div>
+                                            <div class="cars_tables-tbody-td-separator cars_tables-td-small">.</div>
+                                            <div class="cars_tables-tbody-td-total_price_dpf cars_tables-td-small" th:text="${car.totalPriceDpf}"></div>
+                                            <div class="cars_tables-tbody-td-separator cars_tables-td-small">万円</div>
+                                        </div>
+                                        <div class="cars_tables-tbody-td cars_tables-tbody-td-mileages">
+                                            <div class="cars_tables-tbody-td-mileage" th:text="${car.mileage}">10,000</div>
+                                            <div class="cars_tables-tbody-td-separator cars_tables-td-small">km</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <button type="submit" class="cars_list_pdf-btn">作成</button>
+                                <input type="hidden" name="id" th:value="${car.id}">
+                                <input type="hidden" th:if="${priceCardName != null}" name="priceCardName" th:value="${priceCardName}">
+                                <input type="hidden" th:if="${employee != null}" name="employeeId" th:value="${employee.id}">
+
+                                <input type="hidden" name="maker" th:value="${car.maker}">
+                                <input type="hidden" name="carModel" th:value="${car.carModel}">
+                                <input type="hidden" name="grade" th:value="${car.grade}">
+                                <input type="hidden" name="classification" th:value="${car.classification.name()}">
+                                <input type="hidden" name="firstJc" th:value="${car.firstJc.name()}">
+                                <input type="hidden" name="registrationYear" th:value="${car.registrationYear}">
+                                <input type="hidden" name="registrationMonth" th:value="${car.registrationMonth}">
+                                <input type="hidden" name="viJc" th:value="${car.viJc}">
+                                <input type="hidden" name="viYear" th:value="${car.viYear}">
+                                <input type="hidden" name="viMonth" th:value="${car.viMonth}">
+                                <input type="hidden" name="price" th:value="${car.price}">
+                                <input type="hidden" name="priceDpf" th:value="${car.priceDpf}">
+                                <input type="hidden" name="totalPrice" th:value="${car.totalPrice}">
+                                <input type="hidden" name="totalPriceDpf" th:value="${car.totalPriceDpf}">
+                                <input type="hidden" name="calcPriceOfInt" th:value="${car.calcPriceOfInt}">
+                                <input type="hidden" name="calcPriceOfDpf" th:value="${car.calcPriceOfDpf}">
+                                <input type="hidden" name="mileage" th:value="${car.mileage}">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <nav aria-label="Page navigation example" class="mt-4" th:if="${carList != null && carList.size() >= 1}">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item">
+                        <a class="page-link" th:if="${currentPage > 0}" th:href="@{/cars/list(page=${currentPage - 1})}">Previous</a>
+                      </li>
+
+                      <li class="page-item" th:each="i : ${#numbers.sequence(0, totalPages - 1)}" style="display:inline;">
+                        <a class="page-link" th:href="@{/cars/list(page=${i})}" th:text="${i + 1}" th:classappend="${i == currentPage} ? 'active'"></a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" th:if="${currentPage < totalPages - 1}" th:href="@{/cars/list(page=${currentPage + 1})}">Next</a>
+                      </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+    
+
+    <script th:if="${message}" th:inline="javascript">
+        alert(/*[[${message}]]*/);
+    </script>
+
+    <script>
+        const allCheckBox = document.getElementById("cars_tables-allcheckbox");
+        const checks = document.querySelectorAll(".cars_tables-tbody-checkbox");
+        const checksHidden = document.querySelectorAll(".cars_tables-tbody-checkbox-hidden");
+        const checksHidden2 = document.querySelectorAll(".cars_tables-tbody-checkbox-hidden2")
+
+        const resetBtn = document.getElementById("resetBtn");
+        const searchKey = document.getElementById("searchKey");
+        const searchMinPrice = document.getElementById("searchMinPrice");
+        const searchMaxPrice = document.getElementById("searchMaxPrice");
+
+        allCheckBox.addEventListener("click", () => {
+           for (let i = 0; i < checks.length; i++) {
+            checks[i].checked = allCheckBox.checked;
+            checksHidden[i].checked = allCheckBox.checked;
+            checksHidden2[i].checked = allCheckBox.checked;
+           }
+        });
+
+
+        for (let i = 0; i < checks.length; i++) {
+            checks[i].addEventListener("click", () => {
+                checksHidden[i].checked = checks[i].checked;
+                checksHidden2[i].checked = checks[i].checked;
+            });
+        }
+
+        document.getElementById('car_list-pdf-create-input').addEventListener('click', () => {
+            window.addEventListener('DOMContentLoaded', () => {
+               fetch('')
+            });
+        });
+
+        resetBtn.addEventListener("click", () => {
+            searchKey.value = "";
+            searchMinPrice.value = "";
+            searchMaxPrice.value = "";
+        });
+
+    </script>
+</body>
+</html>

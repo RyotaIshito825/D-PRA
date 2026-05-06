@@ -1,0 +1,104 @@
+.edit_profiles {
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.edit_profile_images_inner {
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.profileImageInputs {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profileImageInput {
+  display: none;
+}
+
+.profileImageInputButton {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+}
+
+.edit_profile_image {
+  width: 200px;
+  border-radius: 5px;
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+}
+
+.edit_profile_tables {
+  margin-left: 20px;
+}
+
+.edit_profile_tables-tr_inputs {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.edit_profile_tables-th {
+  width: 150px;
+  color: rgb(0, 153, 213);
+  font-weight: bold;
+}
+
+.edit_profile_tables-td {
+  width: 450px;
+  padding: 10px;
+  border: 0.5px solid gray;
+}
+
+.edit-profile_tables-td-name {
+  width: 300px;
+}
+
+.edit-profile_tables-td-department {
+  width: 300px;
+}
+
+.errors {
+  margin-top: 3px;
+}
+
+.error_message {
+  font-weight: bold;
+  display: none;
+  color: red;
+}
+
+.edit_profile_edit-btns {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.edit_profile_edit-btn {
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: rgb(0, 153, 213);
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+.edit_profile-update-btn {
+  width: 80px;
+  margin-left: 10px;
+  padding: 12px 0px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+}/*# sourceMappingURL=user_edit.css.map */

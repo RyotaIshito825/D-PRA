@@ -1,0 +1,62 @@
+.car_details {
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.car_detail_tables {
+  margin-left: 20px;
+}
+
+.car_detail_tables-tr {
+  display: flex;
+  background-color: white;
+  padding: 15px 20px;
+  margin-bottom: 7px;
+  width: 100%;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.car_detail_tables-th {
+  width: 200px;
+  color: rgb(0, 153, 213);
+  font-weight: bold;
+}
+
+.car_detail_tables-td {
+  width: 700px;
+}
+
+.car_detail_edit-btns {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.car_detail_edit-btn {
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+}
+
+.car_detail_tables-td-first_registrations {
+  display: flex;
+}
+
+.car_detail_tables-td-vehicle_inspections {
+  display: flex;
+}
+
+.car_detail_tables-td-prices {
+  display: flex;
+}
+
+.car_detail_tables-td-total_prices {
+  display: flex;
+}
+
+.car_detail_tables-td-mileages {
+  display: flex;
+}/*# sourceMappingURL=car_detail.css.map */

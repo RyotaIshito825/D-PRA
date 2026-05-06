@@ -1,0 +1,46 @@
+.user_tables {
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.user_tables td {
+  padding: 5px 40px;
+}
+
+.thead-tr th {
+  padding-bottom: 10px;
+  text-align: center;
+}
+.tbody-tr {
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.tbody-tr:hover {
+  cursor: pointer;
+}
+.tbody-tr:hover {
+  transform: scale(1.01);
+  transition: 0.5s;
+  background-color: rgb(192, 237, 255);
+}
+
+.user_tables-image img {
+  display: block;
+  width: 40px;
+  border-radius: 100px;
+  border: 1px solid gray;
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+}
+
+.user_tables-allows {
+  position: relative;
+}
+
+.user_tables-allow {
+  position: absolute;
+  right: 50%; /* 右端に配置 */
+  top: 50%; /* 垂直方向の中央揃え */
+  transform: translateY(-50%); /* 上方向に 50% 移動し中央に */
+  width: 15px;
+}/*# sourceMappingURL=user_list.css.map */

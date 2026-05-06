@@ -1,0 +1,66 @@
+.shop_registration-urls {
+  width: 290px;
+  margin: 50px auto 0;
+}
+
+.shop_registration-inputs {
+  width: 290px;
+  margin: 5px auto 50px;
+}
+
+.shop_registration-input {
+  width: 290px;
+  border: none;
+  border-bottom: 1px solid gray;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.shop_registration-explanation {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.shop_registration_drop_images {
+  position: relative;
+  width: 290px;
+  height: 80px;
+  border: 2px dotted gray;
+  margin: 0px auto 20px;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.shop_registration_drop-text {
+  font-size: 13px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.shop_registration-upload-button {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  background: #0D6EFD;
+}
+
+.shop_registration-btn-wrapper {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.shop_registration-btn {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  background: #0D6EFD;
+}/*# sourceMappingURL=shop_registration.css.map */

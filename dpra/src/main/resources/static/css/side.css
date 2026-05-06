@@ -1,0 +1,212 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 14px;
+  background: #f7f7f7;
+  font-family: "Barlow", "Noto Sans JP", "sans-serif";
+  line-height: 1.5;
+  user-select: none;
+  font-feature-settings: "palt";
+  color: #141414;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #eff4f7;
+
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 11px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: rgb(17, 17, 17);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.japanese_calendar,
+.registration_year,
+.registration_month {
+  font-family: Impact;
+}
+
+.contents {
+  display: flex;
+}
+
+.content-mains {
+  margin-left: 30px;
+  padding: 30px 20px 20px 20px;
+}
+
+.page_title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.japanese_calendar,
+.registration_year,
+.registration_month {
+  font-family: Impact;
+}
+
+.side {
+  background-color: #0D6EFD;
+  width: 200px;
+  border-radius: 5px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 730px;
+  max-height: 100%;
+  height: 100vh;
+}
+
+.app_icons {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-color: white;
+  margin: 0 auto;
+}
+.menus {
+  flex-grow: 1; /* メニュー部分を可変にして高さ調整 */
+  padding: 0 10px;
+  margin-top: 30px;
+  background-color: #0D6EFD;
+}
+
+.menu-list {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  line-height: 50px;
+  padding: 0 10px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin-top: 5px;
+}
+.menu-list i {
+  width: 15px;
+  margin-right: 10px;
+  display: block;
+  text-align: center;
+}
+.menu-list:hover {
+  color: rgb(0, 116, 162);
+  background-color: white;
+}
+
+.side_store-names {
+  margin-bottom: 15px;
+}
+
+.side_store-name {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 20px 0;
+}
+.side_store-name::before, .side_store-name::after {
+  position: absolute;
+  content: "";
+  width: 90%;
+  height: 1px;
+  margin: 0 auto;
+}
+.side_store-name::before {
+  background-color: white;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.side_store-name::after {
+  background-color: white;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.side_employee-profiles {
+  margin-top: auto; /* 下に押し出す */
+}
+
+.side_employee-profiles-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side_employee-profile-images {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: white;
+  position: relative;
+}
+.side_employee-profile-images img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  display: block;
+}
+
+.side_employee-profile-names {
+  margin-left: 10px;
+}
+
+.side_employee-profile-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.side_employee-profile-department {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}/*# sourceMappingURL=side.css.map */

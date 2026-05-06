@@ -1,0 +1,41 @@
+.user_regis {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.user_regis_inner {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
+  padding: 50px;
+}
+
+.user_regis-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user_regis-texts {
+  padding: 30px 50px;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+}
+
+.user_regis-login-links {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.user_regis-login-link {
+  text-align: center;
+  text-decoration-line: underline;
+}/*# sourceMappingURL=user_registration.css.map */

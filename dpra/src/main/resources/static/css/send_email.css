@@ -1,0 +1,65 @@
+.send_emails {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.send_emails_inner {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
+  padding: 50px 70px;
+}
+
+.send_emails-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.send_emails_forms {
+  margin-top: 60px;
+}
+
+.send_emails-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  padding: 5px 10px;
+  height: 40px;
+}
+
+.send_emails-btns {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 40px;
+}
+
+.send_emails-btn-cancel {
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(205, 205, 205);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 13px 30px;
+  font-weight: bold;
+}
+
+.send_emails-btn-submits {
+  margin-left: 20px;
+}
+
+.send_emails-btn-submit {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+  color: white;
+  padding: 10px 30px;
+  font-weight: bold;
+}/*# sourceMappingURL=send_email.css.map */
+
