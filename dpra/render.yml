@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: dpra
+    env: java
+    buildCommand: cd dpra && ./gradlew build
+    startCommand: java -jar dpra/build/libs/dpra-0.0.1-SNAPSHOT.jar
