@@ -1,3 +1,8 @@
+spring:
+    application:
+        name: dpra
 google:
     spreadsheet:
         keyfile: 'd-pra-494415-a9557061f322.json'
+server:
+    port: ${PORT:8080}
