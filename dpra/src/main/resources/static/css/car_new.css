@@ -35,7 +35,7 @@
 
 .car_news_tables-th {
   width: 150px;
-  color: #0D6EFD;
+  color: #0083B0;
   font-weight: bold;
 }
 
@@ -211,5 +211,5 @@
   border: none;
   font-weight: bold;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  background: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
 }/*# sourceMappingURL=car_new.css.map */

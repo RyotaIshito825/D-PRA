@@ -1,10 +1,17 @@
+.page-link {
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
+  border: none;
+}
+
 .content-mains_inner {
   position: relative;
 }
 
 .cars_list-content-mains {
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  width: 1200px;
   padding: 30px 20px 20px 20px;
+  background-color: #f7f7f7;
 }
 
 
@@ -17,7 +24,7 @@
 
 .car_list-btn-new {
   padding: 10px 25px;
-  background-color: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -27,7 +34,7 @@
 
 .car_list-btn-data-intake {
   padding: 10px 25px;
-  background-color: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -53,7 +60,7 @@
 .car_list-batch-select-btn {
   width: 40px;
   height: 25px;
-  background-color: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -105,7 +112,7 @@
 
 .car_list-keyword-search-btn {
   padding: 10px 25px;
-  background-color: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -115,7 +122,7 @@
 
 .car_list-search-reset-btn {
   padding: 10px 13px;
-  background-color: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   color: white;
@@ -151,7 +158,7 @@
 
 .car_list-pef-create-input {
   padding: 10px 25px;
-  background-color: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -295,7 +302,7 @@
 .cars_list_pdf-btn {
   padding: 5px 10px;
   margin-left: 10px;
-  background-color: #0D6EFD;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;

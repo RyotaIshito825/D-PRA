@@ -5,6 +5,12 @@
     <nav class="menus">
         <ul class="menu">
             <li>
+                <a th:href="@{/cars/guide}" style="" class="menu-list">
+                    <i class="fa-solid fa-book-open side-icon fa-lg"></i>
+                    <div>はじめに</div>
+                </a>
+            </li>
+            <li>
                 <a th:href="@{/cars/list}" style="" class="menu-list">
                     <i class="fa-solid fa-house side-icon fa-lg"></i>
                     <div>ホーム</div>
@@ -41,7 +47,7 @@
                 </a>
             </li>
             <li style="text-align: center; margin-top: 30px;">
-                <a th:href="@{/file/車両一覧.xlsx}" download="車両一覧.xlsx" class="menu-list" style="padding: 3px 0; display: block;text-align: center; background-color: white; color: rgb(14, 130, 255);">
+                <a th:href="@{/file/車両一覧.xlsx}" download="車両一覧.xlsx" class="menu-list" style="padding: 3px 0; display: block;text-align: center; background-color: white; color: #0083B0;">
                     <div style="line-height: 1.5;">取込用車両一覧<br>Excelテンプレ<br>ダウンロード</div>
                 </a>
             </li>

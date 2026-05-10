@@ -2,8 +2,8 @@
   width: 100%;
   margin: 0 auto;
   height: 100vh;
-  background-color: #0D6EFD;
-  background-image: url(../img/background-blue.jpg);
+  background-image: linear-gradient(152deg, #0083B0, #00B4DB, #0083B0);
+  /* background-image: url(../img/background-blue.jpg); */
   position: relative;
 }
 
@@ -67,25 +67,28 @@
   color: white;
   margin-top: 10px;
 }
+.apps_go-app-wrapper {
+  text-align: center;
+}
 .apps_go-app {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
 }
 .apps_go-app-innertext {
-  color: rgb(0, 96, 165);
+  color: #0083B0;
   padding: 20px 30px;
   width: 300px;
   border-radius: 100px;
   background-color: white;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-  margin: 20px 0 10px 0;
+  margin: 30px auto;
 }
 .apps_go-app-text {
   font-size: 13px;
   color: white;
-  margin-top: 10px;
   width: 300px;
+  margin: 10px auto;
   text-align: center;
 }
 

@@ -1,22 +1,12 @@
 package com.ishito.sample.dpra.controller;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,23 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.gson.GsonFactory;
-import com.google.api.services.sheets.v4.Sheets;
-import com.google.api.services.sheets.v4.SheetsScopes;
-import com.google.api.services.sheets.v4.model.Spreadsheet;
-import com.google.api.services.sheets.v4.model.ValueRange;
-import com.google.auth.http.HttpCredentialsAdapter;
-import com.google.auth.oauth2.GoogleCredentials;
 import com.ishito.sample.dpra.constants.ErrorKinds;
 import com.ishito.sample.dpra.constants.ErrorMessage;
 import com.ishito.sample.dpra.entity.Car;
-import com.ishito.sample.dpra.entity.Car.Classification;
-import com.ishito.sample.dpra.entity.Car.JapaneseCalendar;
-import com.ishito.sample.dpra.entity.Car.VehicleInspection;
 import com.ishito.sample.dpra.entity.PriceCard;
 import com.ishito.sample.dpra.service.CarsService;
 
@@ -68,6 +44,11 @@ public class CarsController {
     @GetMapping(value = "/top")
     public String pageTop() {
         return "cars/top";
+    }
+
+    @GetMapping(value = "guide")
+    public String guide() {
+        return "cars/guide";
     }
 
     @GetMapping(value = "/list")

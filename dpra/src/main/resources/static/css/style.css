@@ -13,7 +13,7 @@ body {
 
 body {
   font-size: 14px;
-  background: rgb(218, 218, 218);
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
   font-family: "Barlow", "Noto Sans JP", "sans-serif";
   line-height: 1.5;
   user-select: none;

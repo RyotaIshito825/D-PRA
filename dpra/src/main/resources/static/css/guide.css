@@ -1,0 +1,130 @@
+body {
+  background-color: #f7f7f7;
+  font-family: "Barlow", "Noto Sans JP", "sans-serif";
+}
+
+.guides {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.guides_howto-title span {
+  display: inline-block;
+  background-color: white;
+  border: 0.5px solid gray;
+  padding: 10px 20px;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.guides_howto-steps {
+  position: fixed;
+  width: 35%;
+}
+
+.guides_howto-step {
+  margin: 30px 0;
+}
+.guides_howto-step:first-child .guides_howto-step-title {
+  font-size: 30px;
+}
+.guides_howto-step:nth-of-type(1) .guides_howto-step-title::before {
+  position: absolute;
+  content: "1";
+  top: 50%;
+  left: -30px;
+  transform: translate(0, -50%);
+}
+.guides_howto-step:nth-of-type(2) .guides_howto-step-title {
+  font-size: 20px;
+  opacity: 0.4;
+}
+.guides_howto-step:nth-of-type(2) .guides_howto-step-title::before {
+  position: absolute;
+  content: "2";
+  top: 50%;
+  left: -30px;
+  transform: translate(0, -50%);
+}
+.guides_howto-step:nth-of-type(2) .guides_howto-step-subtitle {
+  opacity: 0.4;
+  font-size: 14px;
+}
+.guides_howto-step:nth-of-type(3) .guides_howto-step-title {
+  font-size: 20px;
+  opacity: 0.4;
+}
+.guides_howto-step:nth-of-type(3) .guides_howto-step-title::before {
+  position: absolute;
+  content: "3";
+  top: 50%;
+  left: -30px;
+  transform: translate(0, -50%);
+}
+.guides_howto-step:nth-of-type(3) .guides_howto-step-subtitle {
+  opacity: 0.4;
+  font-size: 14px;
+}
+.guides_howto-step:nth-of-type(4) .guides_howto-step-title {
+  font-size: 20px;
+  opacity: 0.4;
+}
+.guides_howto-step:nth-of-type(4) .guides_howto-step-title::before {
+  position: absolute;
+  content: "4";
+  top: 50%;
+  left: -30px;
+  transform: translate(0, -50%);
+}
+.guides_howto-step:nth-of-type(4) .guides_howto-step-subtitle {
+  opacity: 0.4;
+  font-size: 14px;
+}
+
+.guides_howto-step-titles span {
+  font-size: 20px;
+  transition: 0.5s;
+  font-weight: bold;
+  color: #0083B0;
+  color: rgb(29, 29, 29);
+  position: relative;
+  display: inline-block;
+}
+
+.guides_howto-step-subtitle {
+  transition: 0.5s;
+  font-weight: bold;
+  color: #0083B0;
+  color: rgb(29, 29, 29);
+}
+
+.go-to_car-list-btns {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.go-to_car-list-btn {
+  padding: 20px 25px;
+  background-image: linear-gradient(152deg, #00B4DB, #0083B0);
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.guides_images {
+  width: 100%;
+}
+
+.guides_image {
+  width: 55%;
+  margin-left: auto;
+  margin-bottom: 200px;
+}
+.guides_image img {
+  margin: 10px 0;
+  width: 100%;
+  display: block;
+  box-shadow: 3px 3px 6px -2px #555, 3px 3px 8px rgba(255, 255, 255, 0.8) inset;
+}/*# sourceMappingURL=style.css.map */
